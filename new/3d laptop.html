@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Laptop Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            margin: 0;
+        }
+        model-viewer {
+            width: 80vw;
+            height: 80vh;
+        }
+        .buy-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            background-color: #00ff00;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .buy-button:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <model-viewer src="./gaming_laptop.glb" 
+                  alt="3D Laptop Model" 
+                  auto-rotate 
+                  camera-controls 
+                  shadow-intensity="1">
+    </model-viewer>
+    <a href="https://www.razer.com/pc/gaming-laptops" target="_blank" class="buy-button">Buy Now</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/* Glow Effect */
+/* Neon Glow Effect - Razer Green */
+.item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%; /* Slightly larger */
+    height: 120%;
+    background: radial-gradient(rgba(0, 255, 0, 0.8), transparent); /* Razer green glow */
+    transform: translate(-50%, -50%);
+    opacity: 0.8; /* Always visible but subtle */
+    filter: blur(40px); /* Stronger blur */
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.item:hover::before {
+    opacity: 1; /* Brighter on hover */
+    filter: blur(50px); /* Stronger glow on hover */
+}
+
+/* Add Box Shadow for Extra Glow */
+.item {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.item:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 0, 1);
+}
+/* Default Button Style */
+.button {
+    text-decoration: none;
+    background: rgba(0, 255, 0, 0.8);
+    color: black;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    white-space: nowrap;
+}
+
+/* Smaller buttons for Keyboard, Microphone, and Headset */
+.item:nth-child(1) .button, /* Headset */
+.item:nth-child(2) .button, /* Keyboard */
+.item:nth-child(3) .button { /* Microphone */
+    padding: 5px 8px;
+    font-size: 12px;
+}

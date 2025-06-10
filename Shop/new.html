@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Product Grid</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* GRID CONTAINER */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 80%;
+            margin: 50px auto;
+        }
+
+        /* GRID ITEMS */
+        .item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            background: rgba(0, 0, 0, 0.8); 
+        }
+
+        /* Neon Glow Effect - Default Hidden */
+        .item::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(rgba(0, 255, 0, 0.8), transparent);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            filter: blur(40px);
+            z-index: -1;
+            transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        /* Glow appears only on hover */
+        .item:hover::before {
+            opacity: 1;
+            filter: blur(50px);
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* TEXT OVERLAY */
+        .item .overlay-text {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #0f0; /* Neon green */
+            z-index: 2;
+        }
+
+        /* BUTTONS CONTAINER */
+        .buttons-container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Show buttons on hover */
+        .item:hover .buttons-container {
+            opacity: 1;
+        }
+
+        /* BUTTON STYLING */
+        .button {
+            text-decoration: none;
+            background: rgba(0, 255, 0, 0.8);
+            color: black;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out, transform 0.2s;
+        }
+
+        .button:hover {
+            background: rgba(0, 255, 0, 1);
+            transform: scale(1.1);
+        }
+
+        /* GRID SIZES */
+        .item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+        .item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+        .item:nth-child(3) { grid-column: span 1; grid-row: span 2; }
+        .item:nth-child(4) { grid-column: span 2; grid-row: span 1; }
+        .item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .item:nth-child(3) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            .item {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    
+
+    <div class="gallery-container">
+        <div class="item">
+            <div class="overlay-text">Headset</div>
+            <img src="https://i.ibb.co/C30xjtzF/headphones.jpg" alt="Headset">
+            <div class="buttons-container">
+                <a href="3d headset.html" class="button" target="_blank">View in 3D</a>
+                <a href="https://www.razer.com/store/gaming-audio" class="button" target="_blank">Buy Now</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="overlay-text">Keyboard</div>
+            <img src="https://i.ibb.co/KjpdDZ5R/keyboard.jpg" alt="Keyboard">
+            <div class="buttons-container">
+                <a href="3d keyboard.html" class="button" target="_blank">View in 3D</a>
+                <a href="https://www.razer.com/store/gaming-keyboards" class="button" target="_blank">Buy Now</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="overlay-text">Microphone</div>
+            <img src="https://i.ibb.co/WpRQRPZZ/mic.jpg" alt="Microphone">
+            <div class="buttons-container">
+                <a href="3d mic.html" class="button" target="_blank">View in 3D</a>
+                <a href="https://www.razer.com/search/mic" class="button" target="_blank">Buy Now</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="overlay-text">Laptop</div>
+            <img src="https://i.ibb.co/W4X0D1YG/Whats-App-Image-2025-03-11-at-11-36-54-afffa227.jpg" alt="Laptop">
+            <div class="buttons-container">
+                <a href="3d laptop.html" class="button" target="_blank">View in 3D</a>
+                <a href="https://www.razer.com/pc/gaming-laptops" class="button" target="_blank">Buy Now</a>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
